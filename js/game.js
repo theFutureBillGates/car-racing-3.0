@@ -19,9 +19,16 @@ class Game{
 
     async start(){
         car1 = createSprite(100,200);
+        car1.addImage("car1",car1Image);
+
         car2 = createSprite(300,200);
+        car2.addImage("car2",car2Image);
+
         car3 = createSprite(500,200);
+        car3.addImage("car3",car3Image);
+
         car4 = createSprite(700,200);
+        car4.addImage("car4", car4Image);
 
         carArray = [car1, car2, car3, car4];
         
@@ -44,10 +51,14 @@ class Game{
         text("Game Starts!",120,100);
         Player.getPlayerInfo();
         if(allPlayers != undefined){
+            //hexa number for the color code
+            background("#c68767")
+
+            image(trackImage,0,-displayHeight*4,displayWidth,displayHeight*5)
           //  var playerDistance = 130;
             console.log(allPlayers);
 
-            var X = 0;
+            var X = 175;
             var Y = 0;
             var index = 0;
 
