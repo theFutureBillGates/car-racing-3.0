@@ -47,7 +47,7 @@ class Game{
     }
 
     play(){
-        form.hide();
+        form.hideE();
         text("Game Starts!",120,100);
         Player.getPlayerInfo();
         if(allPlayers != undefined){
@@ -56,7 +56,7 @@ class Game{
 
             image(trackImage,0,-displayHeight*4,displayWidth,displayHeight*5)
           //  var playerDistance = 130;
-            console.log(allPlayers);
+           // console.log(allPlayers);
 
             var X = 175;
             var Y = 0;
@@ -68,19 +68,25 @@ class Game{
                 X = X+200;
 
                 //use the data from the database to display the cars in Y direction
-                console.log(index);
+               // console.log(index);
                 Y = displayHeight-allPlayers[i].distance;
                 carArray[index-1].x = X;
                // console.log(playerCount);
                 carArray[index-1].y = Y;
 
                 if(index == player.playerCount){
-                    console.log(index-1);
+                    stroke(10);
+                  //  fill("red");
+                    ellipse(X,Y,60,60);
+                  //  console.log(index-1);
                    carArray[index-1].shapeColor = "red";
                    camera.position.x = displayWidth/2;
                    camera.position.y = carArray[index-1].y;
+                   
 
                 }
+
+
                
              /*   if(i=="player"+player.playerCount){
                   //  console.log(i);
@@ -99,7 +105,16 @@ class Game{
             player.distance = player.distance+50;
             player.update();
         }
+
+        if(player.distance>3860){
+          gameState = 2;
+        }
+
         drawSprites();
     }
-   
+
+   end(){
+       game.update(2);
+  
+   }
 }
